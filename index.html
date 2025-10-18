@@ -5,64 +5,186 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>株式会社エイムフィールド | 公式サイト</title>
 <style>
-body { font-family: 'Yu Gothic', sans-serif; margin: 0; background: #f6f7f5; color: #333; }
-header { background-color: #3a6b5d; color: white; padding: 1.5em; text-align: center; font-size: 1.4em; font-weight: bold; }
-main { max-width: 960px; margin: 2em auto; background: white; padding: 2em; border-radius: 1em; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-h1,h2 { color: #3a6b5d; }
-section { margin-top: 2em; }
-footer { background: #3a6b5d; color: white; text-align: center; padding: 1.5em; font-size: 0.9em; margin-top: 3em; }
-button { background: #3a6b5d; color: white; border: none; padding: 0.8em 1.5em; border-radius: 0.5em; cursor: pointer; }
-button:hover { background: #325a50; }
-a { color: #3a6b5d; }
+  :root{
+    --brand:#3a6b5d; /* くすみグリーン */
+    --ink:#0f172a;
+    --muted:#6b7280;
+    --line:#e5e7eb;
+    --bg:#f8faf9;
+    --card:#ffffff;
+    --shadow:0 6px 16px rgba(0,0,0,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;}
+  a{color:var(--brand);text-decoration:none}
+  header{
+    position:sticky;top:0;z-index:20;
+    backdrop-filter:saturate(180%) blur(8px);
+    background:rgba(255,255,255,.75);
+    border-bottom:1px solid var(--line);
+  }
+  .container{max-width:1120px;margin:0 auto;padding:0 20px}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700}
+  .logo-badge{width:28px;height:28px;border-radius:10px;background:var(--brand);display:grid;place-items:center;color:#fff;font-size:14px}
+  .menu{display:flex;gap:24px;font-size:14px}
+  .cta{padding:10px 16px;border-radius:12px;background:var(--brand);color:#fff}
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;min-height:72vh}
+  .hero-left{display:flex;align-items:center;padding:64px 0}
+  .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.25;margin:0 0 16px}
+  .hero p{color:var(--muted);margin:0 0 24px}
+  .hero-right{position:relative;background:#101826;color:#fff;display:grid;place-items:end;padding:24px}
+  .hero-img{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(16,24,38,.15), rgba(16,24,38,.55)),
+      radial-gradient(1200px 600px at 70% 10%, rgba(58,107,93,.4), transparent 60%),
+      #101826;
+    /* ここに実画像を入れる場合は下の行を差し替え */
+    /* background-image:url('hero.jpg'); background-size:cover; background-position:center; */
+  }
+  .scroll{display:inline-flex;align-items:center;gap:8px;color:#cbd5e1;font-size:12px;background:rgba(255,255,255,.08);padding:8px 10px;border-radius:999px;backdrop-filter:blur(4px)}
+  .dots{display:inline-flex;gap:6px;margin-left:8px}
+  .dots i{width:6px;height:6px;border-radius:50%;background:#fff;opacity:.4}
+  .dots i:first-child{opacity:1}
+  /* cards */
+  .cards{display:grid;grid-auto-flow:column;gap:16px;overflow:auto;padding:20px 0 6px}
+  .card{min-width:280px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px}
+  .card h3{margin:6px 0 4px;font-size:16px}
+  .card p{margin:0;color:var(--muted);font-size:13px}
+  /* sections */
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  h2{font-size:22px;margin:0 0 16px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .feature{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px}
+  /* contact */
+  .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+  input,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit}
+  textarea{min-height:120px;resize:vertical}
+  .btn{background:var(--brand);color:#fff;border:none;padding:12px 18px;border-radius:12px;cursor:pointer}
+  footer{border-top:1px solid var(--line);background:#fff}
+  .foot{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:24px 0}
+  @media (max-width:960px){
+    .hero{grid-template-columns:1fr}
+    .contact{grid-template-columns:1fr}
+    .grid3{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
-<header>株式会社エイムフィールド</header>
-<main>
-<h1>ペットと人にやさしいものづくりを。</h1>
-<p>株式会社エイムフィールドは、ハンドメイド品質にこだわったペット用品やオリジナル刺繍雑貨を製作しています。</p>
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <div class="logo-badge">AF</div>
+      <div>株式会社エイムフィールド</div>
+    </div>
+    <nav class="menu">
+      <a href="#services">サービス</a>
+      <a href="#works">実績</a>
+      <a href="#privacy">プライバシー</a>
+      <a href="#tokushoho">特商法</a>
+      <a class="cta" href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
 
-<section>
-<h2>事業内容</h2>
-<ul>
-<li>OEM/ODM製造（小ロットから対応）</li>
-<li>EC運営支援（楽天・Amazon・Yahoo!等）</li>
-<li>刺繍名入れ・ギフト制作</li>
-</ul>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left container">
+    <div>
+      <h1>クラウドをとめない<br>お客様の未来環境づくり</h1>
+      <p>
+        株式会社エイムフィールドは、ペットと人にやさしいものづくりと、<br>
+        EC運営支援・OEM/ODMを通じて、事業の継続性と品質の両立を支えます。
+      </p>
+      <div class="cards">
+        <div class="card">
+          <div class="mini">Cloud Platform</div>
+          <h3>やさしい製品設計</h3>
+          <p>ペットに配慮した素材選定と安全設計。小ロット試作可。</p>
+        </div>
+        <div class="card">
+          <div class="mini">Internet Routing</div>
+          <h3>EC運営支援</h3>
+          <p>楽天/amazon/Yahoo!のページ制作・広告運用を伴走支援。</p>
+        </div>
+        <div class="card">
+          <div class="mini">CLOUD</div>
+          <h3>刺繍名入れ</h3>
+          <p>ギフト向けカスタム刺繍、名入れ迷子札など短納期対応。</p>
+        </div>
+      </div>
+      <div style="margin-top:18px;font-size:13px;color:var(--muted);">SCROLL</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img"></div>
+    <div class="scroll">安全で持続的な運用 <span class="dots"><i></i><i></i><i></i></span></div>
+  </div>
 </section>
 
-<section>
-<h2>お問い合わせ</h2>
-<p>ご相談・お見積りは無料です。下記メールまたはフォームよりご連絡ください。</p>
-<p>📧 <a href="mailto:info@example.co.jp">info@example.co.jp</a></p>
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <h2>サービス</h2>
+    <div class="grid3">
+      <div class="feature"><h3>OEM/ODM製造</h3><p>企画・試作・量産まで一貫支援。小ロットから柔軟対応。</p></div>
+      <div class="feature"><h3>EC運営支援</h3><p>商品ページ最適化、広告運用、レビュー戦略まで伴走。</p></div>
+      <div class="feature"><h3>刺繍名入れ</h3><p>ロゴ刺繍・ギフト制作・迷子札などカスタム制作。</p></div>
+    </div>
+  </div>
 </section>
 
-<section id="privacy">
-<h2>プライバシーポリシー（雛形）</h2>
-<p>株式会社エイムフィールド（以下、「当社」といいます。）は、個人情報の保護を重要な責務と認識し、以下の方針に基づき個人情報を取り扱います。</p>
-<ol>
-<li>取得する情報：氏名、住所、電話番号、メールアドレス等</li>
-<li>利用目的：商品の発送、問い合わせ対応、サービス改善</li>
-<li>第三者提供：法令を除き、本人同意なしに提供しません。</li>
-</ol>
+<!-- WORKS -->
+<section id="works">
+  <div class="container">
+    <h2>実績（サンプル）</h2>
+    <div class="grid3">
+      <div class="feature"><h3>製品A</h3><p>説明文を入れます。画像は後ほど差し替え可能。</p></div>
+      <div class="feature"><h3>製品B</h3><p>説明文を入れます。画像は後ほど差し替え可能。</p></div>
+      <div class="feature"><h3>製品C</h3><p>説明文を入れます。画像は後ほど差し替え可能。</p></div>
+    </div>
+  </div>
 </section>
 
-<section id="tokushoho">
-<h2>特定商取引法に基づく表記（雛形）</h2>
-<ul>
-<li>販売業者：株式会社エイムフィールド</li>
-<li>責任者：＜氏名＞</li>
-<li>所在地：＜住所＞</li>
-<li>電話番号：＜電話番号＞</li>
-<li>メール：＜メールアドレス＞</li>
-<li>販売価格：各商品ページに記載</li>
-<li>お支払方法：クレジットカード、銀行振込 等</li>
-</ul>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container contact">
+    <div>
+      <h2>お問い合わせ</h2>
+      <p style="color:var(--muted)">ご相談・お見積りは無料です。あとで住所や担当者名を反映します。</p>
+      <form onsubmit="event.preventDefault(); alert('送信（デモ）: メール送信は未接続です');">
+        <label>お名前<br><input required></label><br><br>
+        <label>メールアドレス<br><input type="email" required></label><br><br>
+        <label>お問い合わせ内容<br><textarea required></textarea></label><br><br>
+        <button class="btn">送信する</button>
+      </form>
+    </div>
+    <div>
+      <div class="feature">
+        <h3>連絡先</h3>
+        <p>メール：info@example.co.jp（仮）</p>
+        <p>電話：022-000-0000（仮）</p>
+        <p>所在地：宮城県仙台市泉区◯◯◯（仮）</p>
+      </div>
+      <div class="feature" style="margin-top:16px">
+        <h3>プライバシーポリシー（雛形）</h3>
+        <p id="privacy">個人情報は、商品の発送、問い合わせ対応、サービス改善の目的で適切に取り扱います。</p>
+      </div>
+      <div class="feature" style="margin-top:16px">
+        <h3 id="tokushoho">特定商取引法に基づく表記（雛形）</h3>
+        <p>販売業者：株式会社エイムフィールド／責任者：＜氏名＞／所在地：＜住所＞／電話：＜電話＞／メール：＜メール＞</p>
+      </div>
+    </div>
+  </div>
 </section>
-</main>
 
 <footer>
-<p>© 2025 株式会社エイムフィールド All Rights Reserved.</p>
+  <div class="container foot">
+    <div>© 2025 株式会社エイムフィールド</div>
+    <div><a href="#privacy">プライバシーポリシー</a> / <a href="#tokushoho">特商法表記</a></div>
+  </div>
 </footer>
 </body>
 </html>
