@@ -29,6 +29,7 @@
   .logo-badge{width:28px;height:28px;border-radius:10px;background:var(--brand);display:grid;place-items:center;color:#fff;font-size:14px}
   .menu{display:flex;gap:24px;font-size:14px}
   .cta{padding:10px 16px;border-radius:12px;background:var(--brand);color:#fff}
+
   /* hero */
   .hero{display:grid;grid-template-columns:1.1fr .9fr;min-height:72vh}
   .hero-left{display:flex;align-items:center;padding:64px 0}
@@ -41,35 +42,64 @@
       linear-gradient(180deg, rgba(16,24,38,.15), rgba(16,24,38,.55)),
       radial-gradient(1200px 600px at 70% 10%, rgba(58,107,93,.4), transparent 60%),
       #101826;
-    /* ここに実画像を入れる場合は下の行を差し替え */
-    background-image:url('hero.jpg'); background-size:cover; background-position:center; 
+    background-image:url('hero.jpg'); background-size:cover; background-position:center;
   }
   .scroll{display:inline-flex;align-items:center;gap:8px;color:#cbd5e1;font-size:12px;background:rgba(255,255,255,.08);padding:8px 10px;border-radius:999px;backdrop-filter:blur(4px)}
   .dots{display:inline-flex;gap:6px;margin-left:8px}
   .dots i{width:6px;height:6px;border-radius:50%;background:#fff;opacity:.4}
   .dots i:first-child{opacity:1}
+
   /* cards */
-  .cards{display:grid;grid-auto-flow:column;gap:16px;overflow:auto;padding:20px 0 6px}
-  .card{min-width:280px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px}
+  .cards{display:grid;grid-auto-flow:column;gap:16px;overflow:auto;padding:20px 0 6px;scroll-snap-type:x mandatory}
+  .card{min-width:280px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px;scroll-snap-align:start}
   .card h3{margin:6px 0 4px;font-size:16px}
   .card p{margin:0;color:var(--muted);font-size:13px}
+
   /* sections */
   section{padding:64px 0;border-top:1px solid var(--line)}
   h2{font-size:22px;margin:0 0 16px}
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .feature{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px}
+
   /* contact */
   .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
   input,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit}
   textarea{min-height:120px;resize:vertical}
   .btn{background:var(--brand);color:#fff;border:none;padding:12px 18px;border-radius:12px;cursor:pointer}
+
   footer{border-top:1px solid var(--line);background:#fff}
   .foot{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:24px 0}
-  @media (max-width:960px){
-    .hero{grid-template-columns:1fr}
-    .contact{grid-template-columns:1fr}
-    .grid3{grid-template-columns:1fr}
+
+  /* ====== Mobile tuning (追加CSS) ====== */
+  :root{
+    --fs-h1: clamp(26px, 6vw, 44px);
+    --fs-h2: clamp(18px, 3.2vw, 22px);
+    --fs-body: clamp(14px, 2.8vw, 16px);
   }
+  body{ font-size: var(--fs-body); }
+
+  @media (max-width: 800px){
+    .nav{ height:56px; }
+    .menu a{ display:none; }               /* リンクは隠す */
+    .menu .cta{ display:inline-flex !important; } /* CTAだけ表示 */
+  }
+  @media (max-width: 960px){
+    .hero{ grid-template-columns:1fr; min-height:auto; }
+    .hero-left{ padding: 36px 0; }
+    .hero h1{ font-size: var(--fs-h1); }
+    .hero p{ margin-bottom: 16px; }
+    .hero-right{ height: 48vh; min-height: 320px; }
+    .scroll{ font-size:12px; }
+  }
+  @media (max-width: 640px){
+    section{ padding: 44px 0; }
+    .container{ padding: 0 16px; }
+    .grid3{ grid-template-columns:1fr; }
+    .feature{ padding:16px; }
+  }
+  /* 入力時のズーム抑止＆ボタン強調 */
+  input, textarea{ font-size:16px; }
+  .btn{ padding: 12px 16px; font-weight: 600; border-radius: 14px; }
 </style>
 </head>
 <body>
@@ -94,13 +124,11 @@
   <div class="hero-left container">
     <div>
       <h1>&nbsp;&nbsp;&nbsp;やさしさをかたちに<br>&nbsp;&nbsp;&nbsp;信頼のものづくりを</h1>
-      
-        <h2 style="text-align:center; line-height:1.8; font-weight:600; letter-spacing:0.1em; color:#444;">
-   &nbsp;ペットと人にやさしいものづくりと、EC運営・OEM/ODMを通じて、<br>
+      <h2 style="text-align:center; line-height:1.8; font-weight:600; letter-spacing:0.1em; color:#444;">
+        &nbsp;ペットと人にやさしいものづくりと、EC運営・OEM/ODMを通じて、<br>
         &nbsp;事業の継続性と品質の両立を支えます。<br>
-  <span style="color:#cc9999;">確かな品質と誠実な姿勢で、信頼に応える企業であり続けます。</span>
-</h2>
-       
+        <span style="color:#cc9999;">確かな品質と誠実な姿勢で、信頼に応える企業であり続けます。</span>
+      </h2>
       <div class="cards">
         <div class="card">
           <div class="mini">Cloud Platform</div>
@@ -115,7 +143,7 @@
         <div class="card">
           <div class="mini">CLOUD</div>
           <h3>ＥＣ事業</h3>
-          <p>楽天/amazon/Yahoo! その他ＥＣサイトにて自社製造のペットに優しいペット用品を販売中。</p>
+          <p>楽天/amazon/Yahoo! その他ECサイトにて自社製造のペットに優しいペット用品を販売中。</p>
         </div>
       </div>
       <div style="margin-top:18px;font-size:13px;color:var(--muted);">SCROLL</div>
@@ -157,27 +185,50 @@
     <div>
       <h2>お問い合わせ</h2>
       <p style="color:var(--muted)">ご相談・お見積りは無料です。後ほど住所や担当者名を反映します。</p>
-      <form onsubmit="event.preventDefault(); alert('送信（デモ）: メール送信は未接続です');">
-        <label>お名前<br><input required></label><br><br>
-        <label>メールアドレス<br><input type="email" required></label><br><br>
-        <label>お問い合わせ内容<br><textarea required></textarea></label><br><br>
+
+      <!-- 送信できるフォームに変更 -->
+      <form id="contactForm">
+        <label>お名前<br><input name="name" required></label><br><br>
+        <label>メールアドレス<br><input name="email" type="email" required></label><br><br>
+        <label>お問い合わせ内容<br><textarea name="message" required></textarea></label><br><br>
+        <!-- 迷惑ボット対策（人には見えない） -->
+        <input type="text" name="website" style="display:none">
+        <label style="display:flex;align-items:center;gap:.5em;margin:.5em 0 1em 0;font-size:14px;color:#555;">
+          <input type="checkbox" required> プライバシーポリシーに同意する
+        </label>
         <button class="btn">送信する</button>
+        <p id="formMsg" style="margin-top:10px;color:#3a6b5d;display:none;">送信しました。ありがとうございます！</p>
+        <p id="formErr" style="margin-top:10px;color:#b91c1c;display:none;">送信に失敗しました。時間をおいて再度お試しください。</p>
       </form>
     </div>
+
     <div>
       <div class="feature">
         <h3>連絡先</h3>
         <p>メール：info@canribo.com</p>
-        <p>電話：022-204⁻6024</p>
+        <p>電話：022-204-6024</p>
         <p>所在地：宮城県仙台市青葉区中山台西2-15</p>
       </div>
+
       <div class="feature" style="margin-top:16px">
         <h3>プライバシーポリシー</h3>
         <p id="privacy">個人情報は、商品の発送、問い合わせ対応、サービス改善の目的で適切に取り扱います。</p>
       </div>
+
       <div class="feature" style="margin-top:16px">
-        <h3 id="tokushoho">特定商取引法に基づく表記（雛形）</h3>
-        <p>販売業者：株式会社エイムフィールド／責任者：小野 奈津子＜氏名＞／所在地：宮城県仙台市青葉区中山台西2-15住所＞／電話：022-204⁻6024＜電話＞／メール：info@canribo.com＜メール＞</p>
+        <h3 id="tokushoho">特定商取引法に基づく表記</h3>
+        <ul style="padding-left: 1.2em; margin: .5em 0;">
+          <li>販売業者：株式会社エイムフィールド</li>
+          <li>運営統括責任者：小野 奈津子</li>
+          <li>所在地：宮城県仙台市青葉区中山台西2-15</li>
+          <li>電話番号：022-204-6024（受付：平日10:00–17:00）</li>
+          <li>メール：info@canribo.com</li>
+          <li>販売価格：各商品ページに税込価格を表示</li>
+          <li>支払方法・支払時期：クレジットカード、銀行振込 等／ご注文時にお支払い</li>
+          <li>引き渡し時期：ご入金確認後、通常◯〜◯営業日以内に発送（受注生産品は別途案内）</li>
+          <li>返品・交換：商品到着後◯日以内にご連絡ください。オーダー品は不可。</li>
+          <li>不良品：初期不良・誤配送は当社送料負担にて交換・返金対応</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -189,5 +240,50 @@
     <div><a href="#privacy">プライバシーポリシー</a> / <a href="#tokushoho">特商法表記</a></div>
   </div>
 </footer>
+
+<!-- ===== フォーム送信スクリプト（最後にURLだけ差し替え） ===== -->
+<script>
+  // ★ここを書き換え：Apps Scriptの「ウェブアプリURL」
+  const SCRIPT_URL = "YOUR_APPS_SCRIPT_URL";
+
+  const form = document.getElementById('contactForm');
+  const ok = document.getElementById('formMsg');
+  const ng = document.getElementById('formErr');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // 迷惑ボット対策（honeypot）
+    if (form.website && form.website.value) return;
+
+    const payload = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      message: form.message.value.trim(),
+      ua: navigator.userAgent,
+      page: location.href
+    };
+
+    ok.style.display = 'none';
+    ng.style.display = 'none';
+
+    try {
+      const res = await fetch(SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (data && data.ok) {
+        ok.style.display = 'block';
+        form.reset();
+      } else {
+        ng.style.display = 'block';
+      }
+    } catch (err) {
+      ng.style.display = 'block';
+    }
+  });
+</script>
 </body>
 </html>
