@@ -240,31 +240,30 @@
 </footer>
 
 <script>
-  // ← あなたのApps ScriptウェブアプリURL（/execで終わる）
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyoyPnj-m31DT2HEgW0WbU6kOGzR2w8ABRVXnIH_6LCteLgQguhr0IiOCfpePnKKqow/exec";
-
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxxxxxxx/exec";
   const form = document.getElementById('contactForm');
   const ok = document.getElementById('formMsg');
   const ng = document.getElementById('formErr');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (form.website && form.website.value) return; // 迷惑対策
 
-    // honeypot（スパム防止）
-    if (form.website && form.website.value) return;
-
-    // JSONではなく FormData で送信 → preflight回避
-    const fd = new FormData(form);
-    fd.append('ua', navigator.userAgent);
-    fd.append('page', location.href);
+    // ★ FormData → URLSearchParams に変換
+    const params = new URLSearchParams();
+    params.append('name', form.elements.name.value);
+    params.append('email', form.elements.email.value);
+    params.append('message', form.elements.message.value);
+    params.append('ua', navigator.userAgent);
+    params.append('page', location.href);
 
     ok.style.display = 'none';
     ng.style.display = 'none';
 
     try {
-      const res = await fetch(SCRIPT_URL, { method: 'POST', body: fd });
+      const res = await fetch(SCRIPT_URL, { method: 'POST', body: params });
       const text = await res.text();
-      if (res.ok && (text.includes('ok') || text.includes('"ok": true'))) {
+      if (res.ok && (text.includes('ok') || text.includes('"ok":true'))) {
         ok.style.display = 'block';
         form.reset();
       } else {
