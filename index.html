@@ -97,7 +97,6 @@
     .grid3{ grid-template-columns:1fr; }
     .feature{ padding:16px; }
   }
-  /* 入力時のズーム抑止＆ボタン強調 */
   input, textarea{ font-size:16px; }
   .btn{ padding: 12px 16px; font-weight: 600; border-radius: 14px; }
 </style>
@@ -124,7 +123,7 @@
   <div class="hero-left container">
     <div>
       <h1>&nbsp;&nbsp;&nbsp;やさしさをかたちに<br>&nbsp;&nbsp;&nbsp;信頼のものづくりを</h1>
-      <h2 style=line-height:1.8; font-weight:600; letter-spacing:0.1em; color:#444;">
+      <h2 style="line-height:1.8; font-weight:600; letter-spacing:0.1em; color:#444;">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ペットと人にやさしいものづくりと、<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EC運営・OEM/ODMを通じて、<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;事業の継続性と品質の両立を支えます。<br><br>
         <span style="color:#cc9999;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;確かな品質と誠実な姿勢で、信頼に応える企業であり続けます。</span>
@@ -186,7 +185,6 @@
       <h2>お問い合わせ</h2>
       <p style="color:var(--muted)">ご相談・お見積りは無料です。後ほど住所や担当者名を反映します。</p>
 
-      <!-- ▼ここから置き換え -->
       <form id="contactForm">
         <label>お名前<br><input name="name" required></label><br><br>
         <label>メールアドレス<br><input name="email" type="email" required></label><br><br>
@@ -200,7 +198,6 @@
         <p id="formMsg" style="margin-top:10px;color:#3a6b5d;display:none;">送信しました。ありがとうございます！</p>
         <p id="formErr" style="margin-top:10px;color:#b91c1c;display:none;">送信に失敗しました。時間をおいて再度お試しください。</p>
       </form>
-      <!-- ▲ここまで置き換え -->
     </div>
 
     <div>
@@ -242,10 +239,9 @@
   </div>
 </footer>
 
-<!-- …中略…  最後の </body> の直前に以下を入れる -->
 <script>
-  // ★あなたの Apps Script「ウェブアプリURL」を貼る（/exec で終わるURL）
-  const SCRIPT_URL = "YOUR_APPS_SCRIPT_URL";
+  // ← あなたのApps ScriptウェブアプリURL（/execで終わる）
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzkZEvwMZ87qJMHuHILlpxHxE-fGfxnGU0WJcNEr063Wwax1uRXvex_voXYU6iyByP0/exec";
 
   const form = document.getElementById('contactForm');
   const ok = document.getElementById('formMsg');
@@ -254,10 +250,10 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // honeypot：ここに何か入っていたら送信しない（スパム防止）
+    // honeypot（スパム防止）
     if (form.website && form.website.value) return;
 
-    // ← JSONではなく FormData で送る（ヘッダーは付けない）
+    // JSONではなく FormData で送信 → preflight回避
     const fd = new FormData(form);
     fd.append('ua', navigator.userAgent);
     fd.append('page', location.href);
@@ -268,7 +264,6 @@
     try {
       const res = await fetch(SCRIPT_URL, { method: 'POST', body: fd });
       const text = await res.text();
-      // Apps Scriptの返答は text のこともあるので安全に判定
       if (res.ok && (text.includes('ok') || text.includes('"ok": true'))) {
         ok.style.display = 'block';
         form.reset();
