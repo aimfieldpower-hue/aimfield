@@ -186,7 +186,7 @@
       <h2>お問い合わせ</h2>
       <p style="color:var(--muted)">ご相談・お見積りは無料です。後ほど住所や担当者名を反映します。</p>
 
-      <!-- 送信できるフォームに変更 -->
+      <!-- ▼ここから置き換え -->
       <form id="contactForm">
         <label>お名前<br><input name="name" required></label><br><br>
         <label>メールアドレス<br><input name="email" type="email" required></label><br><br>
@@ -200,6 +200,7 @@
         <p id="formMsg" style="margin-top:10px;color:#3a6b5d;display:none;">送信しました。ありがとうございます！</p>
         <p id="formErr" style="margin-top:10px;color:#b91c1c;display:none;">送信に失敗しました。時間をおいて再度お試しください。</p>
       </form>
+      <!-- ▲ここまで置き換え -->
     </div>
 
     <div>
@@ -241,11 +242,10 @@
   </div>
 </footer>
 
-<!-- ===== フォーム送信スクリプト（最後にURLだけ差し替え） ===== -->
+<!-- …中略…  最後の </body> の直前に以下を入れる -->
 <script>
-  // ★ここを書き換え：Apps Scriptの「ウェブアプリURL」
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzkZEvwMZ87qJMHuHILlpxHxE-fGfxnGU0WJcNEr063Wwax1uRXvex_voXYU6iyByP0/exec";
-
+  // ★あなたの Apps Script「ウェブアプリURL」を貼る（/exec で終わるURL）
+  const SCRIPT_URL = "YOUR_APPS_SCRIPT_URL";
 
   const form = document.getElementById('contactForm');
   const ok = document.getElementById('formMsg');
@@ -254,34 +254,28 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // 迷惑ボット対策（honeypot）
+    // honeypot：ここに何か入っていたら送信しない（スパム防止）
     if (form.website && form.website.value) return;
 
-    const payload = {
-      name: form.name.value.trim(),
-      email: form.email.value.trim(),
-      message: form.message.value.trim(),
-      ua: navigator.userAgent,
-      page: location.href
-    };
+    // ← JSONではなく FormData で送る（ヘッダーは付けない）
+    const fd = new FormData(form);
+    fd.append('ua', navigator.userAgent);
+    fd.append('page', location.href);
 
     ok.style.display = 'none';
     ng.style.display = 'none';
 
     try {
-      const res = await fetch(SCRIPT_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      const data = await res.json();
-      if (data && data.ok) {
+      const res = await fetch(SCRIPT_URL, { method: 'POST', body: fd });
+      const text = await res.text();
+      // Apps Scriptの返答は text のこともあるので安全に判定
+      if (res.ok && (text.includes('ok') || text.includes('"ok": true'))) {
         ok.style.display = 'block';
         form.reset();
       } else {
         ng.style.display = 'block';
       }
-    } catch (err) {
+    } catch (_) {
       ng.style.display = 'block';
     }
   });
