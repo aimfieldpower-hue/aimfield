@@ -99,6 +99,14 @@
   }
   input, textarea{ font-size:16px; }
   .btn{ padding: 12px 16px; font-weight: 600; border-radius: 14px; }
+/* カード全面をクリック可能にする“伸びるリンク” */
+.card{ position: relative; }
+.card .stretched-link{
+  position: absolute; inset: 0; border-radius: 16px;  /* 角丸に沿う */
+  z-index: 10;                                        /* テキストの上に置く */
+}
+.card .stretched-link:focus{ outline: 2px solid var(--brand); outline-offset: 4px; }
+
 </style>
 </head>
 <body>
@@ -129,23 +137,22 @@
         <span style="color:#cc9999;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;確かな品質と誠実な姿勢で、信頼に応える企業であり続けます。</span>
       </h2>
       <div class="cards">
-         <a href="oem.html" class="card" style="text-decoration:none;color:inherit;">
-          <div class="mini">Cloud Platform</div>
-          <h3>ＯＥＭ：やさしい製品設計</h3>
-          <p>ペットに配慮した素材選定と安全設計。小ロット試作可。</p></a>
-        </div>
-        <div class="card">
-          <div class="mini">Internet Routing</div>
-          <h3>刺繍名入れ</h3>
-          <p>ギフト向けカスタム刺繍、名入れ迷子札など短納期対応。</p>
-        </div>
-        <div class="card">
-          <div class="mini">CLOUD</div>
-          <h3>ＥＣ事業</h3>
-          <p>楽天/amazon/Yahoo! その他ECサイトにて自社製造のペットに優しいペット用品を販売中。</p>
-        </div>
-      </div>
-      <div style="margin-top:18px;font-size:13px;color:var(--muted);">SCROLL</div>
+  <div class="card">
+    <a href="oem.html" class="stretched-link" aria-label="OEM製造のご案内へ"></a>
+    <h3>ＯＥＭ：やさしい製品設計</h3>
+    <p>ペットに配慮した素材選定と安全設計。小ロット試作可。</p>
+  </div>
+
+  <div class="card">
+    <h3>刺繍名入れ</h3>
+    <p>ギフト向けカスタム刺繍、名入れ迷子札など短納期対応。</p>
+  </div>
+
+  <div class="card">
+    <h3>ＥＣ事業</h3>
+    <p>楽天/amazon/Yahoo! その他ECサイトにて自社製造のペットに優しいペット用品を販売中。</p>
+  </div>
+</div>      <div style="margin-top:18px;font-size:13px;color:var(--muted);">SCROLL</div>
     </div>
   </div>
   <div class="hero-right">
