@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>刺繍名入れ | 株式会社エイムフィールド</title>
+<style>
+  :root{ --brand:#3a6b5d; --ink:#0f172a; --line:#e5e7eb; }
+  body{ margin:0; background:#f9faf9; color:#333;
+        font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif; }
+  /* ヘッダー（固定） */
+  header{
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    position:sticky; top:0; z-index:50;
+    padding:12px 20px; display:flex; justify-content:space-between; align-items:center;
+  }
+  header .brand{ font-weight:700; color:var(--brand); }
+  header .btn{ background:var(--brand); color:#fff; padding:8px 16px; border-radius:10px;
+               text-decoration:none; font-size:14px; font-weight:600; box-shadow:0 2px 6px rgba(0,0,0,.1); }
+  header .btn:hover{ filter:brightness(.9); }
+
+  .container{ max-width:960px; margin:32px auto; padding:0 20px; }
+  .card{ background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,.08); padding:24px; }
+
+  h1{ font-size:28px; margin:0 0 12px; color:#2d4a42; }
+  h2{ font-size:20px; margin:28px 0 12px; color:var(--brand); }
+  p,li{ line-height:1.8; }
+  ul,ol{ margin-left:1.2em; }
+
+  /* ギャラリー */
+  .gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:12px; }
+  .gallery img{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.05); }
+  @media (max-width:720px){ .gallery{ grid-template-columns:1fr; } }
+
+  .back{ text-align:center; margin:60px 0 24px; }
+  .back a{ display:inline-block; background:var(--brand); color:#fff; padding:10px 24px; border-radius:12px;
+           text-decoration:none; font-weight:600; box-shadow:0 4px 10px rgba(0,0,0,.1); }
+  .back a:hover{ filter:brightness(.9); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">株式会社エイムフィールド</div>
+  <a href="index.html" class="btn">トップへ戻る</a>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h1>刺繍名入れ</h1>
+    <p>ロゴ刺繍、名入れ、ギフト向けカスタム刺繍など、小ロットから量産まで柔軟に対応します。刺繍データ（パンチ）作成から最適な糸・下地・縫い設定まで、やさしい風合いと耐久性の両立をご提案します。</p>
+
+    <h2>対応メニュー</h2>
+    <ul>
+      <li>名入れ（アルファベット／ひらがな／カタカナ／漢字）</li>
+      <li>オリジナルロゴ刺繍（ロゴデータからのパンチ作成可）</li>
+      <li>ギフト向け刺繍（出産祝い・記念日など）</li>
+      <li>布小物への刺繍（バンド、タグ、ワッペン 等）</li>
+    </ul>
+
+    <h2>最小ロット・納期（目安）</h2>
+    <ul>
+      <li>最小ロット：1点から対応可（ご相談ください）</li>
+      <li>通常納期：校了後 5〜14営業日程度（仕様・数量により前後します）</li>
+    </ul>
+
+    <h2>制作フロー</h2>
+    <ol>
+      <li>ご相談・デザイン確認（画像・手書き可）</li>
+      <li>お見積り・サンプル提案（必要に応じて）</li>
+      <li>本制作・検品</li>
+      <li>納品（ギフト包装可）</li>
+    </ol>
+
+    <h2>参考ギャラリー（後から画像差し込み可）</h2>
+    <div class="gallery">
+      <!-- 画像を用意できたら以下のコメントアウトを外し、ファイル名を差し替えてください -->
+      <!--
+      <img src="emb-1.jpg" alt="刺繍サンプル1">
+      <img src="emb-2.jpg" alt="刺繍サンプル2">
+      <img src="emb-3.jpg" alt="刺繍サンプル3">
+      -->
+      <!-- 仮プレースホルダー（不要なら削除可） -->
+      <img src="https://placehold.co/800x600?text=Embroidery+1" alt="刺繍サンプル1">
+      <img src="https://placehold.co/800x600?text=Embroidery+2" alt="刺繍サンプル2">
+      <img src="https://placehold.co/800x600?text=Embroidery+3" alt="刺繍サンプル3">
+    </div>
+
+    <h2>お問い合わせ</h2>
+    <p>名入れ位置・サイズ・糸色など自由にご相談ください。用途やご予算、納期に合わせて最適な提案を行います。</p>
+    <p><a href="index.html#contact">▶ お問い合わせフォームへ</a></p>
+  </div>
+</div>
+
+<div class="back">
+  <a href="index.html">← トップページに戻る</a>
+</div>
+
+</body>
+</html>
