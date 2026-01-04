@@ -3,109 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OEM製造のご案内 | 株式会社エイムフィールド</title>
+<title>OEM/ODM製造 | 株式会社エイムフィールド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-  body {
-    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
-    margin:0; padding:0; background:#f9faf9; color:#333;
-  }
-  header {
-    background:#3a6b5d; color:#fff; padding:16px 20px; font-weight:700;
-  }
-  .container {
-    max-width:960px; margin:40px auto; background:#fff;
-    padding:32px; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.08);
-  }
-  h1 { font-size:28px; margin-bottom:16px; color:#2d4a42; }
-  h2 { font-size:20px; margin-top:32px; color:#3a6b5d; }
-  p { line-height:1.8; margin:12px 0; }
-  ul { margin-left:1.2em; line-height:1.8; }
-  a.btn {
-    display:inline-block; margin-top:32px; background:#3a6b5d; color:#fff;
-    padding:12px 24px; border-radius:12px; text-decoration:none; font-weight:600;
-  }
+  /* 基本設定はindexと同じ（共通CSSとして外部化も可能ですが、まずはこのまま貼付可） */
+  :root { --brand: #2c4f44; --accent: #b08e59; --ink: #1a1c1e; --muted: #64748b; --bg: #faf9f6; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Noto Sans JP", sans-serif; line-height: 1.8; }
+  h1, h2 { font-family: "Noto Serif JP", serif; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  
+  /* Header */
+  header { background: #fff; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 20px 0; }
+  .nav { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-weight: 700; letter-spacing: 0.1em; color: var(--brand); }
+  
+  /* Notice Banner */
+  .notice-banner { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 32px; text-align: center; border-radius: 4px; margin: 40px 0; }
+  .notice-banner h2 { color: #475569; font-size: 20px; margin-top: 0; }
+  .notice-banner p { font-size: 14px; color: #64748b; margin-bottom: 0; }
+
+  /* Content */
+  .page-header { padding: 80px 0 40px; text-align: center; }
+  .page-header h1 { font-size: 36px; margin-bottom: 16px; }
+  .content-text { margin-bottom: 60px; font-size: 15px; color: #444; }
+
+  /* Minimal Form */
+  .contact-box { background: #fff; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+  input, textarea { width: 100%; border: none; border-bottom: 1px solid #ccc; padding: 12px 0; margin-bottom: 24px; background: transparent; }
+  .btn-submit { background: var(--brand); color: #fff; border: none; padding: 16px 48px; cursor: pointer; width: 100%; }
+  
+  footer { background: var(--brand); color: #fff; padding: 60px 0; margin-top: 100px; font-size: 13px; text-align: center; }
 </style>
 </head>
 <body>
-<header style="
-  background:rgba(255,255,255,0.85);
-  backdrop-filter: blur(8px);
-  border-bottom:1px solid #e5e7eb;
-  position:sticky;
-  top:0;
-  z-index:50;
-  padding:12px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-family:-apple-system,BlinkMacSystemFont,'Yu Gothic',Meiryo,sans-serif;
-">
-  <div style="font-weight:700;color:#3a6b5d;">株式会社エイムフィールド</div>
-  <a href="index.html" style="
-    background:#3a6b5d;
-    color:#fff;
-    padding:8px 16px;
-    border-radius:10px;
-    text-decoration:none;
-    font-size:14px;
-    font-weight:600;
-    box-shadow:0 2px 6px rgba(0,0,0,0.1);
-    transition:0.2s;
-  " onmouseover="this.style.background='#325b4f'"
-    onmouseout="this.style.background='#3a6b5d'">
-    トップへ戻る
-  </a>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">AIMFIELD</a>
+    <a href="index.html#contact" style="font-size: 13px; font-weight: 700;">BACK TO HOME</a>
+  </div>
 </header>
-<header>株式会社エイムフィールド｜OEM製造のご案内</header>
 
-<div class="container">
-  <h1>OEM製造のご案内</h1>
-  <p>株式会社エイムフィールドでは、ペット用品・子供用品を中心としたOEM／ODM製造を承っております。小ロットから量産まで、お客様のブランドコンセプトに合わせた「やさしい製品づくり」をご提案いたします。</p>
+<main class="container">
+  <div class="page-header">
+    <h1>OEM / ODM</h1>
+    <p>想いをかたちにする、パートナーシップ</p>
+  </div>
 
-  <h2>OEM対応分野</h2>
-  <ul>
-    <li>ペット用アクセサリー（首輪・迷子札・シュシュなど）</li>
-    <li>ギフト向け刺繍入り雑貨・オリジナル刺繍グッズ</li>
-    <li>子供向けファッション小物・布製品・編み物製品</li>
-  </ul>
+  <div class="notice-banner">
+    <h2>【重要】新規受注の一時停止について</h2>
+    <p>現在、自社ブランド製品の製造ラインが大変混み合っており、<br>
+       誠に勝手ながら<strong>新規のOEM/ODM受注を一時停止</strong>させていただいております。<br>
+       再開の目処が立ちましたら、改めて本サイトにてご案内申し上げます。</p>
+  </div>
 
-  <h2>特徴</h2>
-  <ul>
-    <li>素材選定からデザイン、試作、量産まで一貫対応</li>
-    <li>ペットや子供の安全に配慮したやさしい設計</li>
-    <li>刺繍機を使用した名入れ・オリジナルデザイン刺繍に対応</li>
-    <li>国内での手作業仕上げと丁寧な検品体制</li>
-  </ul>
+  <div class="content-text">
+    <p>株式会社エイムフィールドでは、ペット用品や子供用品を中心に、小ロットからの受託製造を承っております。熟練のクリエイターによる手編み製品や、精密な刺繍加工など、他にはない温かみのある製品づくりが強みです。</p>
+  </div>
 
-  <h2>ご依頼の流れ</h2>
-  <ol style="margin-left:1.2em; line-height:1.8;">
-    <li>お問い合わせフォームまたはメールでご相談</li>
-    <li>ご希望内容・数量・納期のヒアリング</li>
-    <li>試作品・お見積りのご提案</li>
-    <li>正式発注・製造開始</li>
-    <li>検品・納品・アフター対応</li>
-  </ol>
+  <div class="contact-box">
+    <h3 style="text-align: center; margin-bottom: 30px;">お問い合わせ（再開時通知希望など）</h3>
+    <form action="https://formspree.io/f/あなたのフォームID" method="POST">
+      <input type="text" name="name" placeholder="お名前" required>
+      <input type="email" name="_replyto" placeholder="メールアドレス" required>
+      <textarea name="message" rows="5" placeholder="ご相談内容（※現在受注停止中であることをご了承ください）" required></textarea>
+      <button type="submit" class="btn-submit">送信する</button>
+    </form>
+  </div>
+</main>
 
-  <p>OEM製造に関するご相談・お見積りは無料です。お気軽にお問い合わせください。</p>
-
-  <a href="index.html#contact" class="btn">お問い合わせフォームへ</a>
-</div>
-<div style="text-align:center;margin:60px 0 20px;">
-  <a href="index.html" style="
-    display:inline-block;
-    background:#3a6b5d;
-    color:#fff;
-    padding:10px 24px;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:600;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    transition:0.2s;
-  " onmouseover="this.style.background='#325b4f'"
-    onmouseout="this.style.background='#3a6b5d'">
-    ← トップページに戻る
-  </a>
-</div>
+<footer>
+  <p>© 2026 AIMFIELD Co., Ltd.</p>
+</footer>
 
 </body>
 </html>
