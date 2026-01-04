@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>刺繍名入れ加工 | 株式会社エイムフィールド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --brand: #2c4f44; --accent: #b08e59; --bg: #faf9f6; --ink: #1a1c1e; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Noto Sans JP", sans-serif; line-height: 1.8; }
+  h1, h2 { font-family: "Noto Serif JP", serif; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  header { background: #fff; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 20px 0; }
+  .nav { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-weight: 700; color: var(--brand); text-decoration: none; }
+
+  .page-header { padding: 80px 0 40px; text-align: center; }
+  .page-header h1 { font-size: 36px; margin-bottom: 16px; }
+  
+  .feature-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0; align-items: center; }
+  .feature-img { width: 100%; border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+  
+  .contact-box { background: #fff; padding: 40px; margin-top: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+  input, textarea { width: 100%; border: none; border-bottom: 1px solid #ccc; padding: 12px 0; margin-bottom: 24px; background: transparent; font-size: 16px; }
+  .btn-submit { background: var(--brand); color: #fff; border: none; padding: 16px 48px; cursor: pointer; width: 100%; font-weight: 700; }
+
+  footer { background: var(--brand); color: #fff; padding: 60px 0; margin-top: 100px; font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">AIMFIELD</a>
+    <a href="index.html" style="font-size: 13px; font-weight: 700; color: #666; text-decoration: none;">BACK TO HOME</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="page-header">
+    <h1>EMBROIDERY</h1>
+    <p>想いを刻む、特別な一品を</p>
+  </div>
+
+  <div class="feature-section">
+    <div>
+      <h2>確かな技術と表現力</h2>
+      <p>自社ブランドの迷子札開発で培った精密な刺繍技術を提供します。ロゴ刺繍からギフトの名入れまで、生地の風合いを活かした美しい仕上がりをお約束します。</p>
+    </div>
+    <img src="works-2.jpg" alt="刺繍加工の様子" class="feature-img">
+  </div>
+
+  <div style="background: #fff; padding: 40px; border-left: 4px solid var(--accent);">
+    <h3 style="margin-top: 0;">主な対応メニュー</h3>
+    <ul style="font-size: 14px; padding-left: 20px;">
+      <li>ペット用首輪・迷子札への名入れ</li>
+      <li>タオル、ハンカチ等のギフト刺繍</li>
+      <li>企業ロゴ、チームウェアのワッペン制作</li>
+      <li>オリジナルのデザインデータ作成代行</li>
+    </ul>
+  </div>
+
+  <div class="contact-box">
+    <h3 style="text-align: center; margin-bottom: 30px;">刺繍に関するお問い合わせ</h3>
+    <form action="https://formspree.io/f/あなたのフォームID" method="POST">
+      <input type="text" name="name" placeholder="お名前" required>
+      <input type="email" name="_replyto" placeholder="メールアドレス" required>
+      <textarea name="message" rows="5" placeholder="ご希望の刺繍内容や納期などをご記入ください" required></textarea>
+      <button type="submit" class="btn-submit">この内容で送信する</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 AIMFIELD Co., Ltd.</p>
+</footer>
+
+</body>
+</html>
