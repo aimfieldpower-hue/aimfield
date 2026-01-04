@@ -6,26 +6,55 @@
 <title>EC事業・卸販売 | 株式会社エイムフィールド</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-  :root { --brand: #2c4f44; --accent: #b08e59; --bg: #faf9f6; }
-  body { margin: 0; background: var(--bg); font-family: "Noto Sans JP", sans-serif; line-height: 1.8; }
-  h1 { font-family: "Noto Serif JP", serif; text-align: center; padding: 80px 0 40px; font-size: 36px; }
+  :root { --brand: #2c4f44; --accent: #b08e59; --bg: #faf9f6; --ink: #1a1c1e; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Noto Sans JP", sans-serif; line-height: 1.8; }
+  h1 { font-family: "Noto Serif JP", serif; text-align: center; padding: 80px 0 20px; font-size: 36px; margin-bottom: 0; }
   .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-  header { background: #fff; padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
-  .logo { font-weight: 700; color: var(--brand); text-decoration: none; }
   
-  .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 40px 0; }
-  .shop-card { background: #fff; padding: 30px; text-align: center; border: 1px solid #eee; transition: 0.3s; }
-  .shop-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-  .shop-card h3 { margin-bottom: 10px; color: var(--brand); }
-  .btn-shop { display: inline-block; margin-top: 15px; padding: 8px 20px; background: var(--accent); color: #fff; text-decoration: none; font-size: 13px; }
+  header { background: #fff; padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .nav { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-weight: 700; color: var(--brand); text-decoration: none; letter-spacing: 0.1em; }
+  
+  .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 60px 0; }
+  .shop-card { 
+    background: #fff; 
+    padding: 40px 30px; 
+    text-align: center; 
+    border: 1px solid #eee; 
+    transition: 0.4s; 
+    text-decoration: none; /* カード全体をリンクにする場合 */
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .shop-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+  .shop-card h3 { margin-bottom: 15px; color: var(--brand); font-family: "Noto Serif JP", serif; }
+  .shop-card p { font-size: 14px; color: #666; margin-bottom: 25px; }
+  
+  .btn-shop { 
+    display: inline-block; 
+    padding: 12px 24px; 
+    background: var(--brand); 
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 13px; 
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+  }
 
-  footer { background: var(--brand); color: #fff; padding: 60px 0; text-align: center; font-size: 13px; margin-top: 80px; }
+  /* 下部の案内 */
+  .info-box { background: #fff; padding: 40px; margin-top: 60px; border-left: 4px solid var(--brand); box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+  .info-box h3 { margin-top: 0; font-family: "Noto Serif JP", serif; }
+
+  footer { background: var(--brand); color: rgba(255,255,255,0.7); padding: 60px 0; text-align: center; font-size: 12px; margin-top: 100px; }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="container" style="display: flex; justify-content: space-between;">
+  <div class="container nav">
     <a href="index.html" class="logo">AIMFIELD</a>
     <a href="index.html" style="font-size: 13px; font-weight: 700; color: #666; text-decoration: none;">BACK TO HOME</a>
   </div>
@@ -33,32 +62,40 @@
 
 <main class="container">
   <h1>ONLINE STORE</h1>
-  <p style="text-align: center; color: #666; margin-bottom: 60px;">
+  <p style="text-align: center; color: #666; margin-bottom: 20px;">
     自社ブランドのペット用品を中心に、<br>
-    各種ECモールにて全国へお届けしています。
+    各ECモールにて全国へお届けしています。
   </p>
 
   <div class="shop-grid">
     <div class="shop-card">
-      <h3>楽天市場店</h3>
-      <p style="font-size: 13px;">名入れ刺繍ギフトや<br>こだわりのペット用品</p>
-      <a href="#" class="btn-shop">ショップを見る</a>
+      <div>
+        <h3>楽天市場店</h3>
+        <p>名入れ刺繍ギフトや<br>こだわりのペット用品</p>
+      </div>
+      <a href="https://www.rakuten.co.jp/canribo/" target="_blank" class="btn-shop">SHOP ON RAKUTEN</a>
     </div>
+
     <div class="shop-card">
-      <h3>Amazon店</h3>
-      <p style="font-size: 13px;">迅速な配送と<br>確かな品質の製品</p>
-      <a href="#" class="btn-shop">ショップを見る</a>
+      <div>
+        <h3>Amazon店</h3>
+        <p>迅速な配送と<br>確かな品質の製品</p>
+      </div>
+      <a href="https://www.amazon.co.jp/stores/%E8%BB%BD%E3%81%8F%E8%BB%9F%E3%82%89%E3%81%8B%E3%81%84%E7%8C%AB%E3%81%AB%E5%84%AA%E3%81%97%E3%81%84%E3%83%9A%E3%83%83%E3%83%88%E3%82%B0%E3%83%83%E3%82%BA%E2%97%86%E2%97%86%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%AA%E3%83%9C%E2%97%86%E2%97%86/page/0020FF27-98A6-428A-A290-7045163FF47F?lp_asin=B091FYF4DR&ref_=ast_bln&store_ref=bl_ast_dp_brandLogo_sto" target="_blank" class="btn-shop">SHOP ON AMAZON</a>
     </div>
+
     <div class="shop-card">
-      <h3>Yahoo!店</h3>
-      <p style="font-size: 13px;">Ｔポイントが貯まる<br>公式オンラインショップ</p>
-      <a href="#" class="btn-shop">ショップを見る</a>
+      <div>
+        <h3>Yahoo!店</h3>
+        <p>各種ポイントが貯まる<br>公式オンラインショップ</p>
+      </div>
+      <a href="https://store.shopping.yahoo.co.jp/canribo/" target="_blank" class="btn-shop">SHOP ON YAHOO</a>
     </div>
   </div>
 
-  <div style="background: #fff; padding: 40px; margin-top: 40px; border-left: 4px solid var(--brand);">
-    <h3 style="margin-top: 0;">法人様向けの卸販売について</h3>
-    <p style="font-size: 14px;">実店舗での販売をご希望の事業者様は、お問い合わせフォームよりお気軽にご相談ください。小ロットからの卸販売にも柔軟に対応いたします。</p>
+  <div class="info-box">
+    <h3>法人様向けの卸販売について</h3>
+    <p style="font-size: 14px; margin-bottom: 0;">実店舗での販売をご希望の事業者様は、トップページの下部にあるお問い合わせフォームよりお気軽にご相談ください。小ロットからの卸販売にも柔軟に対応いたします。</p>
   </div>
 </main>
 
