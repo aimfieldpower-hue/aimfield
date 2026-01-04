@@ -3,97 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EC事業 | 株式会社エイムフィールド</title>
+<title>EC事業・卸販売 | 株式会社エイムフィールド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-  :root{ --brand:#3a6b5d; --ink:#0f172a; --line:#e5e7eb; }
-  body{ margin:0; background:#f9faf9; color:#333;
-        font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif; }
-  header{
-    background:rgba(255,255,255,0.85);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-    position:sticky; top:0; z-index:50;
-    padding:12px 20px; display:flex; justify-content:space-between; align-items:center;
-  }
-  header .brand{ font-weight:700; color:var(--brand); }
-  header .btn{ background:var(--brand); color:#fff; padding:8px 16px; border-radius:10px;
-               text-decoration:none; font-size:14px; font-weight:600; box-shadow:0 2px 6px rgba(0,0,0,.1); }
-  header .btn:hover{ filter:brightness(.9); }
+  :root { --brand: #2c4f44; --accent: #b08e59; --bg: #faf9f6; }
+  body { margin: 0; background: var(--bg); font-family: "Noto Sans JP", sans-serif; line-height: 1.8; }
+  h1 { font-family: "Noto Serif JP", serif; text-align: center; padding: 80px 0 40px; font-size: 36px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  header { background: #fff; padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .logo { font-weight: 700; color: var(--brand); text-decoration: none; }
+  
+  .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 40px 0; }
+  .shop-card { background: #fff; padding: 30px; text-align: center; border: 1px solid #eee; transition: 0.3s; }
+  .shop-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+  .shop-card h3 { margin-bottom: 10px; color: var(--brand); }
+  .btn-shop { display: inline-block; margin-top: 15px; padding: 8px 20px; background: var(--accent); color: #fff; text-decoration: none; font-size: 13px; }
 
-  .container{ max-width:960px; margin:32px auto; padding:0 20px; }
-  .card{ background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,.08); padding:24px; }
-
-  h1{ font-size:28px; margin:0 0 12px; color:#2d4a42; }
-  h2{ font-size:20px; margin:28px 0 12px; color:var(--brand); }
-  p,li{ line-height:1.8; }
-  ul{ margin-left:1.2em; }
-
-  .shops{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:8px; }
-  .shops a{ display:block; background:#f3f7f5; border:1px solid var(--line); border-radius:12px; padding:12px; text-decoration:none; color:#2d4a42; font-weight:600; text-align:center; }
-  .shops a:hover{ filter:brightness(.96); }
-  @media (max-width:720px){ .shops{ grid-template-columns:1fr; } }
-
-  /* ギャラリー（任意） */
-  .gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:12px; }
-  .gallery img{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.05); }
-  @media (max-width:720px){ .gallery{ grid-template-columns:1fr; } }
-
-  .back{ text-align:center; margin:60px 0 24px; }
-  .back a{ display:inline-block; background:var(--brand); color:#fff; padding:10px 24px; border-radius:12px;
-           text-decoration:none; font-weight:600; box-shadow:0 4px 10px rgba(0,0,0,.1); }
-  .back a:hover{ filter:brightness(.9); }
+  footer { background: var(--brand); color: #fff; padding: 60px 0; text-align: center; font-size: 13px; margin-top: 80px; }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="brand">株式会社エイムフィールド</div>
-  <a href="index.html" class="btn">トップへ戻る</a>
+  <div class="container" style="display: flex; justify-content: space-between;">
+    <a href="index.html" class="logo">AIMFIELD</a>
+    <a href="index.html" style="font-size: 13px; font-weight: 700; color: #666; text-decoration: none;">BACK TO HOME</a>
+  </div>
 </header>
 
-<div class="container">
-  <div class="card">
-    <h1>EC事業</h1>
-    <p>自社製造の「やさしい」ペット用品を、各ECモールにて販売しています。品質・安全性・使い心地のバランスに配慮し、長くご愛用いただける製品づくりを心がけています。小売・卸のご相談も承ります。</p>
+<main class="container">
+  <h1>ONLINE STORE</h1>
+  <p style="text-align: center; color: #666; margin-bottom: 60px;">
+    自社ブランドのペット用品を中心に、<br>
+    各種ECモールにて全国へお届けしています。
+  </p>
 
-    <h2>取扱モール</h2>
-    <div class="shops">
-      <!-- 必要に応じてモールURLに差し替えてください -->
-      <a href="#" target="_blank" rel="noopener">楽天市場（準備中）</a>
-      <a href="#" target="_blank" rel="noopener">Amazon（準備中）</a>
-      <a href="#" target="_blank" rel="noopener">Yahoo!ショッピング（準備中）</a>
+  <div class="shop-grid">
+    <div class="shop-card">
+      <h3>楽天市場店</h3>
+      <p style="font-size: 13px;">名入れ刺繍ギフトや<br>こだわりのペット用品</p>
+      <a href="#" class="btn-shop">ショップを見る</a>
     </div>
-
-    <h2>卸販売・法人様向け</h2>
-    <ul>
-      <li>小ロット試験導入〜定番採用まで柔軟に対応</li>
-      <li>店舗様の客層に合わせた別注・名入れ対応</li>
-      <li>季節・イベント向け企画のご相談歓迎</li>
-    </ul>
-
-    <h2>参考ギャラリー（後から画像差し込み可）</h2>
-    <div class="gallery">
-      <!-- 画像準備後に差し替え -->
-      <!--
-      <img src="ec-1.jpg" alt="EC商品1">
-      <img src="ec-2.jpg" alt="EC商品2">
-      <img src="ec-3.jpg" alt="EC商品3">
-      -->
-      <!-- 仮プレースホルダー -->
-      <img src="https://placehold.co/800x600?text=EC+Item+1" alt="EC商品1">
-      <img src="https://placehold.co/800x600?text=EC+Item+2" alt="EC商品2">
-      <img src="https://placehold.co/800x600?text=EC+Item+3" alt="EC商品3">
+    <div class="shop-card">
+      <h3>Amazon店</h3>
+      <p style="font-size: 13px;">迅速な配送と<br>確かな品質の製品</p>
+      <a href="#" class="btn-shop">ショップを見る</a>
     </div>
-
-    <h2>お問い合わせ</h2>
-    <p>卸条件・納期・仕様など、お気軽にご相談ください。用途や数量に応じて最適なご提案をいたします。</p>
-    <p><a href="index.html#contact">▶ お問い合わせフォームへ</a></p>
+    <div class="shop-card">
+      <h3>Yahoo!店</h3>
+      <p style="font-size: 13px;">Ｔポイントが貯まる<br>公式オンラインショップ</p>
+      <a href="#" class="btn-shop">ショップを見る</a>
+    </div>
   </div>
-</div>
 
-<div class="back">
-  <a href="index.html">← トップページに戻る</a>
-</div>
+  <div style="background: #fff; padding: 40px; margin-top: 40px; border-left: 4px solid var(--brand);">
+    <h3 style="margin-top: 0;">法人様向けの卸販売について</h3>
+    <p style="font-size: 14px;">実店舗での販売をご希望の事業者様は、お問い合わせフォームよりお気軽にご相談ください。小ロットからの卸販売にも柔軟に対応いたします。</p>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 AIMFIELD Co., Ltd.</p>
+</footer>
 
 </body>
 </html>
